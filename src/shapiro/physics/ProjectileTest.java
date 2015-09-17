@@ -6,9 +6,9 @@ import org.junit.Test;
 public class ProjectileTest {
 	
 	@Test
-	public void testGetY() {
+	public void testGetX() {
 		Projectile p = new Projectile(31, 20, 2.7);
-		double x = p.getY();
+		double x = p.getX();
 		
 		Assert.assertEquals(27.81, x, 0.01);
 	}
