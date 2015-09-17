@@ -10,7 +10,7 @@ public class ScrabbleDictionaryTest {
 		ScrabbleDictionary scrabble = new ScrabbleDictionary();
 		boolean found = scrabble.contains("zoo");
 
-		Assert.assertEquals(true, found);
+		Assert.assertTrue(found);
 	}
 
 	@Test
@@ -18,6 +18,6 @@ public class ScrabbleDictionaryTest {
 		ScrabbleDictionary scrabble = new ScrabbleDictionary();
 		boolean found = scrabble.contains("ac");
 
-		Assert.assertEquals(false, found);
+		Assert.assertFalse(found);
 	}
 }

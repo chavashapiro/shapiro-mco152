@@ -15,8 +15,7 @@ public class MorseCodeTest {
 	@Test
 	public void testDecode() {
 		MorseCode morse = new MorseCode();
-		String message = morse
-				.decode("- --- ..- .-. ---   -.-. --- .-.. .-.. . --. .");
+		String message = morse.decode("- --- ..- .-. ---   -.-. --- .-.. .-.. . --. .");
 
 		Assert.assertEquals("touro college", message);
 	}

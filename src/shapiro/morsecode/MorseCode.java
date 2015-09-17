@@ -5,13 +5,11 @@ public class MorseCode {
 	private String[] morseLetters;
 
 	public MorseCode() {
-		letters = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-				'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-				'v', 'w', 'x', 'y', 'z', ' ' };
-		morseLetters = new String[] { ".-", "-...", "-.-.", "-..", ".", "..-.",
-				"--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---",
-				".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--",
-				"-..-", "-.--", "--..", " " };
+		letters = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+				'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ' };
+		morseLetters = new String[] { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-",
+				".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--",
+				"--..", " " };
 	}
 
 	public String encode(String message) {
@@ -22,10 +20,11 @@ public class MorseCode {
 		for (int i = 0; i < message.length(); i++) {
 			for (int j = 0; j < letters.length; j++) {
 				if (message.charAt(i) == letters[j]) {
-					if (i == message.length() - 1)
+					if (i == message.length() - 1) {
 						code.append(morseLetters[j]);
-					else
+					} else {
 						code.append(morseLetters[j] + " ");
+					}
 				}
 			}
 		}
@@ -40,8 +39,9 @@ public class MorseCode {
 			String[] codeArray = codeWordsArray[t].split(" ");
 			for (int i = 0; i < codeArray.length; i++) {
 				for (int j = 0; j < morseLetters.length; j++) {
-					if (codeArray[i].equals(morseLetters[j]))
+					if (codeArray[i].equals(morseLetters[j])) {
 						message.append(letters[j]);
+					}
 				}
 			}
 			if (!(t == codeWordsArray.length - 1))

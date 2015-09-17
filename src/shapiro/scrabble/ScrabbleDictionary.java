@@ -19,9 +19,6 @@ public class ScrabbleDictionary {
 	}
 
 	public boolean contains(String searchWord) {
-		if (englishWords.contains(searchWord))
-			return true;
-		else
-			return false;
+		return englishWords.contains(searchWord);
 	}
 }
