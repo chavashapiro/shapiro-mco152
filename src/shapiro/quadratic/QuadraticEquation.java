@@ -5,9 +5,8 @@ public class QuadraticEquation {
 	private double b;
 	private double c;
 
-	public QuadraticEquation(double a, double b, double c)
-			throws InvalidDataException {
-		// "a" or "b" can't be negative because then either the denominator or
+	public QuadraticEquation(double a, double b, double c) throws InvalidDataException {
+		// "a" or "b" can't be 0 because then either the denominator or
 		// inside the square root will be 0 so throw exception if one of them is
 		// 0
 		if (a == 0 || b == 0) {

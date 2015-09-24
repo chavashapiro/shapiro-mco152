@@ -1,19 +1,20 @@
 package shapiro.scrabble;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Scanner;
 
 public class ScrabbleDictionary {
 
 	private HashSet<String> englishWords;
 
-	public ScrabbleDictionary() throws FileNotFoundException {
+	public ScrabbleDictionary() throws IOException {
 		englishWords = new HashSet<String>();
-		Scanner wordsFile = new Scanner(new File("US.dic"));
-		while (wordsFile.hasNext()) {
-			englishWords.add(wordsFile.next());
+		BufferedReader wordsFile = new BufferedReader(new FileReader("US.dic"));
+		String word;
+		while ( (word = wordsFile.readLine()) != null) {
+			englishWords.add(word);
 		}
 		wordsFile.close();
 	}

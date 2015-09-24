@@ -1,7 +1,7 @@
 package shapiro.quadratic;
 
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
 
 public class QuadraticEquationTest {
 	@Test
@@ -18,5 +18,15 @@ public class QuadraticEquationTest {
 		double x = q.getNegativeX();
 
 		Assert.assertEquals(-2.48, x, .01);
+	}
+
+	@Test
+	public void testInvalidDataException() {
+		try {
+			new QuadraticEquation(0, 0, 0);
+			Assert.fail("exception not thrown");
+		} catch (InvalidDataException ex) {
+			// expected
+		}
 	}
 }
