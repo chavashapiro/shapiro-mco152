@@ -9,9 +9,12 @@ import com.google.gson.Gson;
 public class UFOSightingMain {
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader in = new BufferedReader(new FileReader("ufo_awesome.json"));
+		final BufferedReader in = new BufferedReader(new FileReader("./ufo_awesome.json"));
 
 		Gson gson = new Gson();
+
+		UFOSightingList list = gson.fromJson(in, UFOSightingList.class);
+		System.out.println(list.size());
 
 		in.close();
 
