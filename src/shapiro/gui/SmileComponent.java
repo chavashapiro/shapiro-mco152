@@ -17,6 +17,9 @@ public class SmileComponent extends JComponent {
 		g.setColor(new Color(88, 161, 245));
 		g.fillOval(325, 225, 50, 50);
 		g.fillOval(425, 225, 50, 50);
+		g.setColor(Color.BLACK);
+		g.fillOval(340, 240, 20, 20);
+		g.fillOval(440, 240, 20, 20);
 		g.setColor(new Color(232, 74, 122));
 		g.fillArc(350, 300, 100, 100, 180, 180);
 	}
