@@ -8,12 +8,21 @@ import java.util.HashSet;
 public class ScrabbleDictionary {
 
 	private HashSet<String> englishWords;
+	private static ScrabbleDictionary singleton;
 
-	public ScrabbleDictionary() throws IOException {
+	public static ScrabbleDictionary getInstance() throws IOException {
+		if (singleton == null) {
+			singleton = new ScrabbleDictionary();
+		}
+
+		return singleton;
+	}
+
+	private ScrabbleDictionary() throws IOException {
 		englishWords = new HashSet<String>();
 		BufferedReader wordsFile = new BufferedReader(new FileReader("US.dic"));
 		String word;
-		while ( (word = wordsFile.readLine()) != null) {
+		while ((word = wordsFile.readLine()) != null) {
 			englishWords.add(word);
 		}
 		wordsFile.close();

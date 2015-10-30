@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ScrabbleDictionaryTest {
 	@Test
 	public void testTrueContains() throws IOException {
-		ScrabbleDictionary scrabble = new ScrabbleDictionary();
+		ScrabbleDictionary scrabble = ScrabbleDictionary.getInstance();
 		boolean found = scrabble.contains("zoo");
 
 		Assert.assertTrue(found);
@@ -16,7 +16,7 @@ public class ScrabbleDictionaryTest {
 
 	@Test
 	public void testFalseContains() throws IOException {
-		ScrabbleDictionary scrabble = new ScrabbleDictionary();
+		ScrabbleDictionary scrabble = ScrabbleDictionary.getInstance();
 		boolean found = scrabble.contains("ac");
 
 		Assert.assertFalse(found);

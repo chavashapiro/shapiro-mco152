@@ -7,6 +7,8 @@ import javax.swing.JComponent;
 
 public class SmileComponent extends JComponent {
 
+	private int y = 240;
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -18,9 +20,22 @@ public class SmileComponent extends JComponent {
 		g.fillOval(325, 225, 50, 50);
 		g.fillOval(425, 225, 50, 50);
 		g.setColor(Color.BLACK);
-		g.fillOval(340, 240, 20, 20);
-		g.fillOval(440, 240, 20, 20);
+		g.fillOval(340, y, 20, 20);
+		g.fillOval(440, y, 20, 20);
+		y++;
+		if (y == 246) {
+			y = 240;
+		}
 		g.setColor(new Color(232, 74, 122));
 		g.fillArc(350, 300, 100, 100, 180, 180);
+
+		try {
+			Thread.sleep(75);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		super.repaint();
 	}
 }
