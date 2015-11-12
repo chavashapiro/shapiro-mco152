@@ -2,7 +2,6 @@ package shapiro.connectfour;
 
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.net.MalformedURLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,7 +19,7 @@ public class ConnectFourFrame extends JFrame {
 	
 	private int currentPlayer;
 	
-	public ConnectFourFrame() throws MalformedURLException {
+	public ConnectFourFrame() {
 		setTitle("Connect Four");
 		setSize(700, 700);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,7 +47,7 @@ public class ConnectFourFrame extends JFrame {
 		currentPlayer = 1;
 	}
 	
-	public static void main(String[] args) throws MalformedURLException {
+	public static void main(String[] args) {
 		ConnectFourFrame connect4 = new ConnectFourFrame();
 		connect4.setVisible(true);
 	}
