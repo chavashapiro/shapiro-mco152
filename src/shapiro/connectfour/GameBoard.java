@@ -68,6 +68,7 @@ public class GameBoard {
 			}
 		}
 
+		// no winner
 		return false;
 	}
 
@@ -78,6 +79,7 @@ public class GameBoard {
 			}
 		}
 
+		// if didn't yet return false, means board is full
 		return true;
 	}
 }
