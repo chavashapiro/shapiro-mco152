@@ -106,7 +106,8 @@ public class AirplaneSeats {
 		}
 		builder.append("\n");
 		for (int row = 0; row < numRows; row++) {
-			builder.append(row + 1 + " ");
+			builder.append(row + 1);
+			builder.append(" ");
 			for (int column = 0; column < numColumns; column++) {
 				builder.append(seats[row][column]);
 			}
