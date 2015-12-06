@@ -11,18 +11,19 @@ import com.google.gson.Gson;
 
 public class WeatherReader {
 	private String zip;
-	private String temp;
+	private double temp;
 	private String description;
 	private URL iconUrl;
+	private CurrentWeather weather;
 
 	public WeatherReader(String zip) throws IOException {
 		this.zip = zip;
 
 		StringBuilder urlString = new StringBuilder();
-		urlString.append("http://");
 		urlString.append("http://api.openweathermap.org/data/2.5/weather?zip=");
 		urlString.append(zip);
-		urlString.append(",us&appid=2de143494c0b295cca9337e1e96b00e0&units=imperial");
+		urlString
+				.append(",us&appid=2de143494c0b295cca9337e1e96b00e0&units=imperial");
 
 		URL url = new URL(urlString.toString());
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -31,8 +32,28 @@ public class WeatherReader {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
 		Gson gson = new Gson();
-		CurrentWeather weather = gson.fromJson(reader, CurrentWeather.class);
+		this.weather = gson.fromJson(reader, CurrentWeather.class);
 		in.close();
+
+		this.temp = weather.getMain().getTemp();
+		this.description = weather.getWeather().getDescription();
+		StringBuilder iconBuilder = new StringBuilder();
+		iconBuilder.append("http://openweathermap.org/img/w/");
+		iconBuilder.append(weather.getWeather().getIcon());
+		iconBuilder.append(".png");
+		this.iconUrl = new URL(iconBuilder.toString());
+	}
+
+	public double getTemp() {
+		return this.temp;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public URL getIconUrl() {
+		return this.iconUrl;
 	}
 
 }

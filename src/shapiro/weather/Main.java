@@ -1,9 +1,9 @@
 package shapiro.weather;
 
 public class Main {
-	private int temp;
+	private double temp;
 
-	public int getTemp() {
+	public double getTemp() {
 		return this.temp;
 	}
 }
