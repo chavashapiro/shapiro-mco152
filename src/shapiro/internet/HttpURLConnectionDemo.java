@@ -20,5 +20,4 @@ public class HttpURLConnectionDemo {
 			System.out.println(s);
 		}
 	}
-
 }

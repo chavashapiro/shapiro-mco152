@@ -6,13 +6,10 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -79,19 +76,8 @@ public class WeatherFrame extends JFrame {
 		getWeatherButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String zip = editZip.getText();
-				try {
-					WeatherReader reader = new WeatherReader(zip);
-					temperature.setText(reader.getTemp() + " degrees F");
-					description.setText(reader.getDescription());
-
-					ImageIcon imageIcon = new ImageIcon(new ImageIcon(reader
-							.getIconUrl()).getImage().getScaledInstance(150,
-							150, Image.SCALE_DEFAULT));
-					icon.setIcon(imageIcon);
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				WeatherReaderThread thread = new WeatherReaderThread(editZip, temperature, description, icon);
+				thread.start();
 			}
 
 		});
