@@ -23,7 +23,7 @@ public class WeatherReader {
 		urlString.append("http://api.openweathermap.org/data/2.5/weather?zip=");
 		urlString.append(zip);
 		urlString
-				.append(",us&appid=2de143494c0b295cca9337e1e96b00e0&units=imperial");
+				.append(",us&appid=7b82d3b32c91d0f6460ccdcdb396ea33&units=imperial");
 
 		URL url = new URL(urlString.toString());
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
