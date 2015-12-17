@@ -2,12 +2,12 @@ package shapiro.weatherforecast;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,8 +21,8 @@ public class ForecastPanel extends JPanel {
 
 	public ForecastPanel() {
 
-		setLayout(new FlowLayout());
-
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
 		date = new JLabel();
 		date.setAlignmentX(Component.CENTER_ALIGNMENT);
 		date.setForeground(Color.MAGENTA);
