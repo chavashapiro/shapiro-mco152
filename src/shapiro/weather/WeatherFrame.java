@@ -70,7 +70,7 @@ public class WeatherFrame extends JFrame {
 		add(description);
 
 		icon = new JLabel();
-		description.setAlignmentX(Component.CENTER_ALIGNMENT);
+		icon.setAlignmentX(Component.CENTER_ALIGNMENT);
 		add(icon);
 
 		getWeatherButton.addActionListener(new ActionListener() {
