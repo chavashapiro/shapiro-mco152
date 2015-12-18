@@ -21,6 +21,8 @@ public class ConnectFourFrame extends JFrame {
 	private ImageIcon empty;
 
 	private int currentPlayer;
+	private final int player1;
+	private final int player2;
 	private GameBoard gameBoard;
 
 	public ConnectFourFrame() {
@@ -31,8 +33,7 @@ public class ConnectFourFrame extends JFrame {
 		setLayout(new GridLayout(7, 7));
 
 		buttons = new JButton[7];
-		arrow = new ImageIcon(new ImageIcon("arrow.png").getImage()
-				.getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+		arrow = new ImageIcon(new ImageIcon("arrow.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
 		for (int i = 0; i < 7; i++) {
 			buttons[i] = new JButton(arrow);
 			add(buttons[i]);
@@ -46,19 +47,21 @@ public class ConnectFourFrame extends JFrame {
 				add(board[row][column]);
 			}
 		}
-		yellow = new ImageIcon(new ImageIcon("yellowpiece.png").getImage()
-				.getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-		red = new ImageIcon(new ImageIcon("redpiece.png").getImage()
-				.getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+		yellow = new ImageIcon(new ImageIcon("yellowpiece.png").getImage().getScaledInstance(100, 100,
+				Image.SCALE_DEFAULT));
+		red = new ImageIcon(new ImageIcon("redpiece.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
 
 		currentPlayer = 1;
+		player1 = 1;
+		player2 = 2;
 		gameBoard = new GameBoard();
 
 		for (int i = 0; i < buttons.length; i++) {
 			int column = i;
 			buttons[i].addActionListener(new ActionListener() {
+
 				@Override
-				public void actionPerformed(ActionEvent arg0) {
+				public void actionPerformed(ActionEvent e) {
 					try {
 						int row = gameBoard.takeTurn(currentPlayer, column);
 						if (currentPlayer == 1) {
@@ -69,14 +72,10 @@ public class ConnectFourFrame extends JFrame {
 
 						boolean full = gameBoard.isFull();
 						if (full) {
-							int playAgain = JOptionPane
-									.showConfirmDialog(
-											null,
-											"No one wins! Would you like to play again?",
-											"Game Over",
-											JOptionPane.YES_NO_OPTION,
-											JOptionPane.INFORMATION_MESSAGE,
-											new ImageIcon("fullboard.png"));
+							int playAgain = JOptionPane.showConfirmDialog(null,
+									"No one wins! Would you like to play again?", "Game Over",
+									JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(
+											"fullboard.png"));
 							if (playAgain == 0) {
 								restartGame();
 							} else {
@@ -86,10 +85,8 @@ public class ConnectFourFrame extends JFrame {
 						boolean winner = gameBoard.isWinner();
 						if (winner) {
 							int playAgain = JOptionPane.showConfirmDialog(null,
-									"You win! Would you like to play again?",
-									"Game Over", JOptionPane.YES_NO_OPTION,
-									JOptionPane.INFORMATION_MESSAGE,
-									new ImageIcon("winner.jfif"));
+									"You win! Would you like to play again?", "Game Over", JOptionPane.YES_NO_OPTION,
+									JOptionPane.INFORMATION_MESSAGE, new ImageIcon("winner.jfif"));
 
 							if (playAgain == 0) {
 								restartGame();
@@ -97,19 +94,20 @@ public class ConnectFourFrame extends JFrame {
 								exitGame();
 							}
 						}
-						if (currentPlayer == 1) {
-							currentPlayer = 2;
+						if (currentPlayer == player1) {
+							currentPlayer = player2;
 						} else {
-							currentPlayer = 1;
+							currentPlayer = player1;
 						}
-					} catch (ColumnFullException e) {
-						JOptionPane.showMessageDialog(null,
-								"Column full. Try another column.",
-								"Column Full", JOptionPane.INFORMATION_MESSAGE,
-								new ImageIcon("fullcolumn.jfif"));
+					} catch (ColumnFullException ex) {
+						JOptionPane.showMessageDialog(null, "Column full. Try another column.", "Column Full",
+								JOptionPane.INFORMATION_MESSAGE, new ImageIcon("fullcolumn.jfif"));
 					}
+
 				}
+
 			});
+
 		}
 	}
 
