@@ -64,7 +64,7 @@ public class ConnectFourFrame extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					try {
 						int row = gameBoard.takeTurn(currentPlayer, column);
-						if (currentPlayer == 1) {
+						if (currentPlayer == player1) {
 							board[row][column].setIcon(yellow);
 						} else {
 							board[row][column].setIcon(red);
@@ -110,7 +110,7 @@ public class ConnectFourFrame extends JFrame {
 
 		}
 	}
-
+	
 	public void restartGame() {
 		dispose();
 		new ConnectFourFrame().setVisible(true);
@@ -124,4 +124,6 @@ public class ConnectFourFrame extends JFrame {
 		ConnectFourFrame connect4 = new ConnectFourFrame();
 		connect4.setVisible(true);
 	}
+
+	
 }
