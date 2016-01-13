@@ -1,7 +1,6 @@
 package shapiro.weatherforecast;
 
 public class DayForecast {
-
 	private Temp temp;
 	private Weather[] weather;
 
@@ -12,5 +11,4 @@ public class DayForecast {
 	public Weather[] getWeather() {
 		return weather;
 	}
-
 }
